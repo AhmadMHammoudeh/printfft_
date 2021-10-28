@@ -26,5 +26,9 @@ int		ft_putstr(char *str);
 int		ft_strlen(const char *s);
 int		ft_isalpha(int c);
 int		ft_putnbr_unsigned(unsigned int nb);
+int     ft_putnbr_hex(unsigned int nb);
+int     ft_putnbr_hexC(unsigned int nb);
+int     ft_putnbr_pre_p(unsigned int nb);
+int     ft_putnbr_p(unsigned long int nb);
 
 #endif

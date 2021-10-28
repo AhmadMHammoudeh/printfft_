@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror -c
 
 NAME = libftprintf.a
 
-SOURCES = 	ft_putchar.c ft_putnbr.c ft_putstr.c ft_printf.c ft_strlen.c
+SOURCES = 	ft_putchar.c ft_putnbr.c ft_putstr.c ft_printf.c ft_strlen.c ft_putnbr_unsigned.c ft_isalpha.c
 #BONUS =		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 

@@ -13,10 +13,12 @@
 #include "ft_printf.h"
 #include "ft_putchar.c"
 #include "ft_putnbr.c"
+#include "ft_putnbr_hex.c"
 #include "ft_putnbr_unsigned.c"
 #include "ft_putstr.c"
 #include "ft_strlen.c"
 #include "ft_isalpha.c"
+#include <limits.h>
 
 int	ft_printf(const char *args, ...)
 {
@@ -44,10 +46,33 @@ int	ft_printf(const char *args, ...)
 			j += ft_putchar(c);
 			i++;
 		}
-		else if (args[i] == '%' && args[i + 1] == 'd' |args[i + 1] == 'i')
+		else if (args[i] == '%' && args[i + 1] == '%')
+		{
+			j += ft_putchar('%');
+			i++;
+		}
+		else if (args[i] == '%' && (args[i + 1] == 'd' || args[i + 1] == 'i'))
 		{
 			n = va_arg(ap, int);
 			j += ft_putnbr(n);
+			i++;
+		}
+		else if (args[i] == '%' && args[i + 1] == 'X')
+		{
+			n = va_arg(ap, unsigned int);
+			j += ft_putnbr_hexC(n);
+			i++;
+		}
+		else if (args[i] == '%' && args[i + 1] == 'x')
+		{
+			n = va_arg(ap, unsigned int);
+			j += ft_putnbr_hex(n);
+			i++;
+		}
+		else if (args[i] == '%' && args[i + 1] == 'p')
+		{
+			n = va_arg(ap, unsigned long int);
+			j += ft_putnbr_pre_p(n);
 			i++;
 		}
 		else if (args[i] == '%' && args[i + 1] == 'u')
@@ -66,37 +91,23 @@ int	ft_printf(const char *args, ...)
 	return (j);
 }
 
-// int	main(int argv, char **argc)
-// {
-// 	char	c = 'c';
-// 	int	a = 123456;
-// 	char	*s = "this is a test";
-// 	int i = 0;
-	
-	// // printf("%s", )
-	// while (i < argv)
-	// {
-	// 	ft_printf(*argc);
-	// 	i++;
-	// }
-// }
-// int	main()
-// {
+int	main()
+{
 // 	char	c = 'A';
-// 	// int	a = 123456;
-// 	unsigned int	a = -42949295;
+// 	unsigned long	a = -ULONG_MAX;
+// 	// unsigned int	a = -42949295;
 // 	char	*s = "this is a test";
-// 	int i;
-// 	int j;
+	int i;
+	int j;
 
+// 	// printf("%lu", a);
 // // 	// printf("%s", s);
 // // 	// ft_printf("%s", s);
-// // i = ft_printf("%d", a);
+i = printf(" %p %p ", LONG_MIN, LONG_MAX);
 // // 	printf("%d", i);
-// 	printf("%u\n", a);
-// 	ft_printf("%u", a);
-// // j = printf("%d", a);
-// // 	ft_printf("%d\n", i);
+	
+j =	ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
+//  	// printf("%d\n", j);
 
 	
-// }
+}
