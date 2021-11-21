@@ -6,7 +6,7 @@
 /*   By: ahhammou <ahhammou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:53:24 by ahhammou          #+#    #+#             */
-/*   Updated: 2021/10/29 12:20:34 by ahhammou         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:28:20 by ahhammou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,23 @@ int	ft_putchar_hex(char c)
 
 int	ft_putnbr_pre_p(unsigned long int nb)
 {
-	int i;
+	int	i;
 
-	printf("YES");
 	if (nb == 0)
 	{
 		write(1, "(nil)", 5);
 		return (1);
 	}
 	write(1, "0x", 2);
-	i = ft_putnbr_p(nb);
-	return (i);
-}
-	
-int	ft_putnbr_pre_p1(long long nb)
-{
-	int i;
-
-	write(1, "0x", 2);
-	// if (nb > 2147483647 || nb < -2147483648)
-	// {
-	// 	// printf("GOOD");
-	// 	i = ft_putnbr_p2(nb);
-	// }
-	// else
-	// 	i = ft_putnbr_p2(nb);
 	i = ft_putnbr_p2(nb);
 	return (i);
 }
-	
+
+int	ft_putnbr_pre_p1(long long nb)
+{
+	int	i;
+
+	write(1, "0x", 2);
+	i = ft_putnbr_p2(nb);
+	return (i);
+}

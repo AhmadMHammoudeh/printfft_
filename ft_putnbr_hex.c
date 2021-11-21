@@ -6,7 +6,7 @@
 /*   By: ahhammou <ahhammou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:42:10 by ahhammou          #+#    #+#             */
-/*   Updated: 2021/10/29 12:19:42 by ahhammou         ###   ########.fr       */
+/*   Updated: 2021/10/29 13:50:04 by ahhammou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,6 @@ static int	ft_numlength_h(unsigned long n)
 
 static int	ft_numlength_l(unsigned long long n)
 {
-	// if (n > 4503599627370496 * 268435456)
-	// 	return (21);
-	// if (n > 4503599627370496 * 16777216)
-	// 	return (20);
-	// if (n > 4503599627370496 * 1048576)
-	// 	return (19);
-	// if (n > 4503599627370496 * 65536)
-	// 	return (18);
-	// if (n > 4503599627370496 * 4096)
-		// return (17);
 	if (n > 4503599627370496 * 256)
 		return (16);
 	if (n > 4503599627370496 * 16)
@@ -88,22 +78,6 @@ int	ft_putnbr_hex(unsigned int nb)
 	return (i);
 }
 
-int	ft_putnbr_p(unsigned long long nb)
-{
-	int					i;
-
-	i = ft_numlength_l(nb);
-	if (!i)
-		i = ft_numlength_h(nb);
-	i += 2;
-	if (nb > 15)
-	{
-		ft_putnbr_p(nb / 16);
-	}
-	ft_putchar_hex(48 + nb % 16);
-	return (i);
-}
-
 int	ft_putnbr_p2(unsigned long long int nb)
 {
 	int					i;
@@ -115,22 +89,6 @@ int	ft_putnbr_p2(unsigned long long int nb)
 	if (nb > 15)
 	{
 		ft_putnbr_p2(nb / 16);
-	}
-	ft_putchar_hex(48 + nb % 16);
-	return (i);
-}
-
-int	ft_putnbr_p1(unsigned int nb)
-{
-	int					i;
-
-	i = ft_numlength_l(nb);
-	if (!i)
-		i = ft_numlength_h(nb);
-	i += 2;
-	if (nb > 15)
-	{
-		ft_putnbr_p1(nb / 16);
 	}
 	ft_putchar_hex(48 + nb % 16);
 	return (i);
